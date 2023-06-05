@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  
+  
+</head>
+<style>
+    .container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col{
+  
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col, input[type="submit"],.alert {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+th,tr,td{
+  border: 1px solid black;
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th{
+  height: 10px;
+}
+
+input[type="submit"] {
+  
+  background-color: darkgray;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float:right;
+  font-weight:bold;
+
+}
+
+input[type="submit"]:hover {
+  background-color: lightgray;
+  
+}
+
+input[type=radio] {
+    border: 1px solid red;
+    width: 100%;
+    height: 1.5em;
+  
+}
+
+.alert{
+  padding: 20px;
+  background-color: #ef746b;
+  color: black;
+  fill-opacity: 50%;
+  border: 3px solid red;
+  border-radius: 4pt;
+  
+}
+
+</style>
+
+<script>
+function sameCand() {
+  let x = document.forms["ballot2"]["choice5"].value;
+  let y = document.forms["ballot2"]["choice4"].value;
+  let z = document.forms["ballot2"]["choice3"].value;
+  let a = document.forms["ballot2"]["choice2"].value;
+  let b = document.forms["ballot2"]["choice1"].value;
+
+  if (x == y || x==z || x==a || x==b) {
+    alert("Warning!Each candidate can only be ranked once. ");
+    return false;
+  }
+  else if (y == z || y==a || y==b) {
+    alert("Warning!Each candidate can only be ranked once. ");
+    return false;
+  }
+  else if(z==a || z==b){
+    alert("Warning!Each candidate can only be ranked once. ");
+    return false;
+  }
+  else if(a==b){
+    alert("Warning!Each candidate can only be ranked once.");
+    return false; 
+}
+}
+
+const rows = document.querySelectorAll('.candidates');
+
+rows.forEach(row => {
+  const radios = row.querySelectorAll('input[type="radio"]');
+  radios.forEach(radio => {
+    radio.addEventListener('change', sameCand);
+  });
+});
+
+</script>
+
+<body>
+<div class="container">
+<form name="ballot2" action="bye.html" method="post">
+  <table>
+
+    
+    <tr>
+      <th colspan="6" style="background-color: lightblue;height: 50px; ">
+        For the Nominations for Office
+      </th> 
+  
+  </tr> 
+
+    <div class="row">
+    <tr class ="choices">
+      
+      <td></td>
+      <th> <b>1st <br> Choice <br> <big><big><big><span>&#8681;</span><big></big></big></big></b></th> 
+      
+       <div class="col">
+      <th> <b>2nd <br> Choice <br><big><big><big><span>&#8681;</span><big></big></big></big></b></th> </div>
+        <th> <b>3rd <br> Choice</b></th>
+        <th> <b>4th <br> Choice</b></th>
+        <th> <b>5th <br> Choice</b></th>
+    </tr></div>
+      <tr class="candidates">
+        <td>Mark Twain</td>
+        <td> <input type="radio" value="mTwain" name="choice1" onchange="sameCand()"></td>
+       <td>
+        <input type="radio" value="mTwain" name="choice2" onchange="sameCand()"> 
+       </td>
+
+        <td>
+          <input type="radio" value="mTwain" name="choice3"  onchange="sameCand()">
+        </td>
+
+        <td>
+          <input type="radio" value="mTwain" name="choice4" onchange="sameCand()">
+        </td>
+
+        <td>
+          <input type="radio" value="mTwain" name="choice5" onchange ="sameCand()">
+        </td>
+        
+      </tr>
+
+    <tr class="candidates">
+      <td>Thomas Edison</td>
+        <td> <input type="radio" value="tEdison" name="choice1" ></td>
+       <td>
+        <input type="radio" value="tEdison" name="choice2" > 
+       </td>
+
+        <td>
+          <input type="radio" value="tEdison" name="choice3" >
+        </td>
+
+        <td>
+          <input type="radio" value="tEdison" name="choice4" onchange="sameCand()">
+        </td>
+
+        <td>
+          <input type="radio" value="tEdison" name="choice5" onchange ="sameCand()">
+        </td>
+        
+      </tr>
+
+    <tr class="candidates">
+      <td>Bill Gates</td>
+        <td> <input type="radio" value="bGates" name="choice1" ></td>
+       <td>
+        <input type="radio" value="bGates" name="choice2" > 
+       </td>
+
+        <td>
+          <input type="radio" value="bGates" name="choice3" >
+        </td>
+
+        <td>
+          <input type="radio" value="bGates" name="choice4" onchange ="sameCand()">
+        </td>
+
+        <td>
+          <input type="radio" value="bGates" name="choice5" onchange ="sameCand()">
+        </td>
+        
+      </tr>
+
+    <tr class="candidates">
+      <td>Indiana Jones</td>
+        <td> <input type="radio" value="iJones" name="choice1" ></td>
+       <td>
+        <input type="radio" value="iJones" name="choice2" > 
+       </td>
+
+        <td>
+          <input type="radio" value="iJones" name="choice3" >
+        </td>
+
+        <td>
+          <input type="radio" value="iJones" name="choice4" onchange ="sameCand()">
+        </td>
+
+        <td>
+          <input type="radio" value="iJones" name="choice5" onchange ="sameCand()">
+        </td>
+        
+      </tr>
+
+    <tr class="candidates">
+      <td>Marie Antoniette</td>
+        <td> <input type="radio" value="mAnton" name="choice1"></td>
+       <td>
+        <input type="radio" value="mAnton" name="choice2" > 
+       </td>
+
+        <td>
+          <input type="radio" value="mAnton" name="choice3" >
+        </td>
+
+        <td>
+          <input type="radio" value="mAnton" name="choice4">
+        </td>
+
+        <td> 
+          <input type="radio" value="mAnton" name="choice5" >
+        </td>
+        
+      </tr>
+  
+  </table>
+
+  <br>
+    <a href="bye.html">
+    <input type="submit" name="submit" value="Submit">
+    </a>
+
+
+</form>
+</div>
+  
+  
+</body>
+
+</html>
