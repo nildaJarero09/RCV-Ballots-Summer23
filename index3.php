@@ -37,7 +37,7 @@ body{
 
     Click "Vote" to begin the voting process.
     <br><br><br>
-    <a href="voting.php">
+    <a href="voting3.php">
         <button type="submit" name="submit">Vote</button>
     </a>
 
