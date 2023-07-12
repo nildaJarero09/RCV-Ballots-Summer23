@@ -92,7 +92,7 @@ else
 {echo "<div><b>5th Choice:</b></div><br>";}
   
 ?>
-<a href="bye.php">
+<a href="bye3.php">
         <button name="submit">Submit</button>
     </a>
 
